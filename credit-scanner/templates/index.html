@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit-Based Document Scanning System</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+            <nav>
+            <ul>
+                {% if session.get('username') %}
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    {% if session.get('role') == 'admin' %}
+                        <li><a href="/admin_dashboard">Admin Dashboard</a></li>
+                    {% endif %}
+                    <li><a href="/logout">Logout</a></li>  <!-- Added Logout link -->
+                {% else %}
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                {% endif %}
+            </ul>
+            </nav>
+
+        
+
+        <main>
+
+            <section>
+                {% if session.get('username') %}
+        
+                <form action="/scan" method="POST" enctype="multipart/form-data">
+                    <label for="document">Upload a document for scanning:</label>
+                    <input type="file" name="document" required>
+                    <button type="submit">Scan Document</button>
+                </form>
+                {% endif %}
+            </section>
+        </main> 
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Credit-Based Document Scanning System</title>
+    <link rel="stylesheet" href="../static/styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+
+    <!-- Navigation Bar (same as user index page) -->
+    <nav>
+        <ul>
+            {% if session.get('username') %}
+            <li><a href="/admin_dashboard/system_analytics">System Analytics</a></li>
+            <li><a href="/manage_credit_requests">Credit Requests</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <!-- Admin Dashboard Main Content -->
+    <main class="container">
+        <h1>Admin Dashboard</h1>
+        <section>
+            <div class="dashboard-cards">
+                <!-- System Analytics Card -->
+                <div class="card">
+                    <h2>System Analytics</h2>
+                    <a href="/admin_dashboard">View Analytics</a>
+                </div>
+
+                <!-- Credit Requests Card -->
+                <div class="card">
+                    <h2>Credit Requests</h2>
+                    <a href="/credit_requests">Manage Requests</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

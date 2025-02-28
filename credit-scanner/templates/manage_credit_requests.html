@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Credit Requests</title>
+    <link rel="stylesheet" href="../static/styles.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        thead {
+            background-color: #007BFF;
+            color: white;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        td {
+            background-color: #fff;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .deny-btn {
+            background-color: #dc3545;
+        }
+        .deny-btn:hover {
+            background-color: #c82333;
+        }
+        form {
+            display: inline-block;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            {% if session.get('username') %}
+                <li><a href="/admin_dashboard/system_analytics">System Analytics</a></li>
+                <li><a href="/manage_credit_requests">Credit Requests</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Manage Credit Requests</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Credits Requested</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                <tr>
+                    <td>{{ request[1] }}</td>
+                    <td>{{ request[2] }}</td>
+                    <td>
+                        <form action="/approve_credit/{{ request[0] }}/approve" method="POST">
+                            <button type="submit">Approve</button>
+                        </form>
+                        <form action="/approve_credit/{{ request[0] }}/deny" method="POST">
+                            <button type="submit" class="deny-btn">Deny</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

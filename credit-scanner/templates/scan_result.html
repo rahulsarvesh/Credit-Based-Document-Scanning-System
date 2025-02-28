@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Results</title>
+    <link rel="stylesheet" href="../static/styles.css"> <!-- Assuming your styles.css file is available -->
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f7f7f7;
+        }
+        td {
+            background-color: #fff;
+        }
+        .no-results {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Scan Results</h2>
+        
+        <!-- Display the remaining credits -->
+        <p><strong>Credits Remaining:</strong> {{ credits }}</p>
+        
+        <!-- Check if there are any similar documents found -->
+        {% if similar_docs %}
+            <h3>Similar Documents Found:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Document Name</th>
+                        <th>Similarity Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through each similar document and display its details -->
+                    {% for doc_name, similarity in similar_docs %}
+                    <tr>
+                        <td>{{ doc_name }}</td>
+                        <td>{{ similarity | round(2) }}</td> <!-- Rounded to 2 decimal places -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p class="no-results">No similar documents found.</p>
+        {% endif %}
+        
+        <a href="/profile">Back to Profile</a>
+    </main>
+</body>
+</html>

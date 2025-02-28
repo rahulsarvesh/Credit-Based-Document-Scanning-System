@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Document Scanning System</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    <section>
+        <h1>Welcome, {{ username }}</h1>
+        <h2>Profile Information</h2>
+        <p>Role: {{ role }}</p>
+        <p class="credit-display">You have {{ credits }} credits left.</p>
+    </section>
+
+    <form action="/request_credits" method="POST">
+        <label for="credits">Credits to request:</label>
+        <input type="number" name="credits" id="credits" required>
+        <button type="submit">Submit Request</button>
+    </form>
+
+
+</body>
+</html>

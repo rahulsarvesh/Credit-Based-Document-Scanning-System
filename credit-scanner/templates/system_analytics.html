@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Analytics - Admin Dashboard</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .metric {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+        .metric-label {
+            font-size: 14px;
+            color: #888;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        table th {
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+    <!-- Reuse the same navigation bar -->
+    <nav>
+        <ul>
+            
+            <li><a href="/admin_dashboard/system_analytics">System Analytics</a></li>
+            <li><a href="/manage_credit_requests">Credit Requests</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <h1 class="mb-4" style="font-size: 28px; margin-bottom: 20px;">System Analytics Dashboard</h1>
+
+        <!-- Key Performance Indicators (KPIs) -->
+        <section class="dashboard-grid">
+            <div class="card">
+                <div class="card-header">Total Users</div>
+                <div class="metric">150</div>
+                <div class="metric-label">Number of registered users</div>
+            </div>
+            <div class="card">
+                <div class="card-header">Documents Scanned</div>
+                <div class="metric">320</div>
+                <div class="metric-label">Total scanned documents</div>
+            </div>
+            <div class="card">
+                <div class="card-header">Credit Transactions</div>
+                <div class="metric">45</div>
+                <div class="metric-label">Total credit requests processed</div>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>

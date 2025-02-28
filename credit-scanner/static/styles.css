@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --background-color: #f8fafc;
+    --text-color: #1e293b;
+    --success-color: #16a34a;
+    --error-color: #dc2626;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+header{
+    background-color: var(--primary-color);
+    padding: 0.2rem;
+    justify-items: center;
+}
+
+nav {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+
+h1, h2, h3 {
+    color: var(--text-color);
+    margin: 1.5rem 0;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+section {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    max-width: 800px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+form input, form select {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Match List Styling */
+ul.matches {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+ul.matches li {
+    background: white;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Credit Display */
+.credit-display {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+    
+    header nav ul {
+        gap: 1rem;
+    }
+    
+    section {
+        padding: 1rem;
+    }
+    
+    form {
+        width: 90%;
+    }
+}
+
